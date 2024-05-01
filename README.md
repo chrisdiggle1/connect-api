@@ -53,6 +53,8 @@ The objective of the Connect API is to provide a backend database to create even
 
 [Django 3.2](https://www.djangoproject.com/) high-level Python web framework used to develop this application.
 
+[Django Rest Framework 3.14](https://www.django-rest-framework.org/) - A powerful a flexible toolkit for building Web APIs.
+
 [Cloudinary 1.4 and Cloudinary storage 0.3](https://cloudinary.com/) - Allowing connection with Cloudinary.
 
 [Pillow 8.2](https://pypi.org/project/pillow/8.2.0/) - A Python imaging library that includes image processing capabilities.
