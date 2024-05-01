@@ -14,11 +14,12 @@ from pathlib import Path
 import os
 
 if os.path.exists('env.py'):
-    import env as env
+    import env
 
 CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
 }
+
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
@@ -35,7 +36,8 @@ SECRET_KEY = 'django-insecure-vj_&#)($u(7ck4-uk^70*_gj$3r#2oz!zc79(ucn=k9=6l%b0u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.environ.get(
+    'ALLOWED_HOST'), '8000-chrisdiggle1-connectapi-u8co2euownp.ws-eu110.gitpod.io']
 
 
 # Application definition
@@ -49,7 +51,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-    'profiles',
+    'profiles'
 ]
 
 MIDDLEWARE = [
