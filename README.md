@@ -15,6 +15,7 @@
 - [Frameworks and Libraries](#frameworks-and-libraries)
 - [Tools and Technologies](#tools-and-technologies)
 - [Testing and Validation](#testing-and-validation)
+- [Bugs and Fixes](#bugs-and-fixes)
 - [Connecting to the API](#connecting-to-the-api)
 - [Deployment](#deployment)
 - [Cloning this repository](#cloning-this-repository)
@@ -59,6 +60,12 @@ The objective of the Connect API is to provide a backend database to create even
 ## Tools and Technologies
 
 ## Testing and Validation
+
+## Bugs and Fixes
+
+| Bug | Fix|
+| --- | ---|
+| After creating the profiles model, I tried to access the 'Profiles' section in the admin panel, but I was receiving an error: CLOUDINARY_STORAGE dictionary with CLOUD_NAME, API_SECRET and API_KEY in the settings or set CLOUDINARY_URL variable (or CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET variables). I checked mulitple times the cloudinary variable were setup correctly in env.py and settings.py. | I had stored the env.py file in the 'connect_api directory. Once I moved the file to the project root then I could access the profile section in the admin panel as expected. |
 
 ## Connecting to the API
 
