@@ -37,6 +37,17 @@ The objective of the Connect API is to provide a backend database to create even
 
 ### Models
 
+#### Profile
+
+owner - OnetoOneField
+created_at - DateTimeField
+updated_at - DateTimeField
+name - CharField
+bio - TextField
+phone_number - IntegerField(optional)
+email - EmailField(optional)
+profile_picture - ImageField
+
 ## Design
 
 ### Aim
