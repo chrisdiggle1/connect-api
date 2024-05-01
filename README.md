@@ -48,6 +48,18 @@ The objective of the Connect API is to provide a backend database to create even
 * email - EmailField(optional)
 * profile_picture - ImageField
 
+#### Events
+
+* owner = ForeignKey
+* created_at - DateTimeField
+* updated_at - DateTimeField
+* title - CharField
+* description - TextField
+* image - ImageField
+* image_filter - CharField
+* event_date - DateField
+* category - CharField
+
 ## Design
 
 ### Aim
@@ -73,6 +85,8 @@ The objective of the Connect API is to provide a backend database to create even
 ## Tools and Technologies
 
 ## Testing and Validation
+
+See [TESTING.md](TESTING.md) for all testing and validation.
 
 ## Bugs and Fixes
 
