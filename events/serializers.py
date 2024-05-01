@@ -36,6 +36,7 @@ class EventSerializer(serializers.ModelSerializer):
         model = Event
         fields = [
             'id', 'owner', 'created_at', 'updated_at', 'title', 'description',
-            'image', 'event_date', 'category', 'is_owner', 'image_filter'
+            'image', 'event_date', 'category', 'is_owner', 'image_filter',
+            'profile_id', 'profile_image'
         ]
-        read_only_fields = ['id', 'owner', 'created_at', 'updated_at']
+        read_only_fields = ['id', 'owner', 'created_at', 'updated_at', 'profile_id', 'profile_image']
