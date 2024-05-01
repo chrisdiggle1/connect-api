@@ -2,6 +2,7 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from .models import Event
 
+
 class EventSerializer(serializers.ModelSerializer):
     """
     Serializer for the Event model
@@ -26,6 +27,15 @@ class EventSerializer(serializers.ModelSerializer):
             )
         return value
 
+    def validate_event_date(self, value):
+        """
+        Validates that the event date is not in the past.
+        """
+        if value < timezone.now().date():
+            raise serializers.ValidationError(
+                "The date cannot be in the past!")
+        return value
+
     def get_is_owner(self, obj):
         request = self.context.get('request', None)
         if request and hasattr(request, "user"):
@@ -39,4 +49,5 @@ class EventSerializer(serializers.ModelSerializer):
             'image', 'event_date', 'category', 'is_owner', 'image_filter',
             'profile_id', 'profile_image'
         ]
-        read_only_fields = ['id', 'owner', 'created_at', 'updated_at', 'profile_id', 'profile_image']
+        read_only_fields = ['id', 'owner', 'created_at',
+                            'updated_at', 'profile_id', 'profile_image']

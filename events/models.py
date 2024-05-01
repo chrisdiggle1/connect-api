@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
+from django.utils import timezone
 
 EVENT_CATEGORIES = (
     ("Health and Wellness", "Health and Wellness"),
@@ -12,6 +14,11 @@ EVENT_CATEGORIES = (
     ("Arts and Crafts", "Arts and Crafts"),
     ("Education", "Education"),
 )
+
+
+def validate_event_date(value):
+    if value < timezone.now().date():
+        raise ValidationError("The date cannot be in the past!")
 
 
 class Event(models.Model):
@@ -41,7 +48,8 @@ class Event(models.Model):
     image_filter = models.CharField(
         max_length=32, choices=image_filter_choices, default='normal'
     )
-    event_date = models.DateField(blank=True)
+    event_date = models.DateField(
+        blank=True, null=True, validators=[validate_event_date])
     category = models.CharField(
         max_length=50, choices=EVENT_CATEGORIES, default='Sport'
     )
