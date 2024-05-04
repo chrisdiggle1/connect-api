@@ -37,7 +37,7 @@ SECRET_KEY = 'django-insecure-vj_&#)($u(7ck4-uk^70*_gj$3r#2oz!zc79(ucn=k9=6l%b0u
 DEBUG = True
 
 ALLOWED_HOSTS = [os.environ.get(
-    'ALLOWED_HOST'), '8000-chrisdiggle1-connectapi-u8co2euownp.ws-eu110.gitpod.io']
+    'ALLOWED_HOST'), '8000-chrisdiggle1-connectapi-u8co2euownp.ws-eu111.gitpod.io']
 
 
 # Application definition
