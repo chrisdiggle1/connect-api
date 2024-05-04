@@ -1,68 +1,66 @@
-from django.http import Http404
-from rest_framework import status, permissions
-from rest_framework.response import Response
-from rest_framework.views import APIView
+from rest_framework import generics, permissions, filters
 from .models import Event
 from .serializers import EventSerializer
 from connect_api.permissions import IsOwnerOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend
+from django.db.models import Count
 
 
-class EventList(APIView):
+class EventList(generics.ListCreateAPIView):
+    """
+    Lists events or allows users to create an event if logged in.
+    The perform_create method associates the event with the logged-in user.
+    """
     serializer_class = EventSerializer
-    permission_classes = [
-        permissions.IsAuthenticatedOrReadOnly
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    queryset = Event.objects.annotate(
+        comments_count=Count('comment', distinct=True),
+        interested_count=Count('interested', distinct=True),
+        going_count=Count('attending', distinct=True),
+        review_count=Count('reviews', distinct=True),
+    ).order_by('-created_at')
+    filter_backends = [
+        filters.OrderingFilter,
+        filters.SearchFilter,
+        DjangoFilterBackend,
+    ]
+    filterset_fields = {
+        'owner__followed__owner__profile': ['exact'],
+        'interested__owner__profile': ['exact'],
+        'attending__owner__profile': ['exact'],
+        'owner__profile': ['exact'],
+        'category': ['exact'],
+        'event_date': ['lte'],
+    }
+    search_fields = [
+        'owner__username',
+        'title',
+        'event_date',
+    ]
+    ordering_fields = [
+        'comments_count',
+        'interested_count',
+        'attending_count',
+        'review_count',
+        'interested__created_at',
+        'attending__created_at',
+        'event_date',
     ]
 
-    def get(self, request):
-        events = Event.objects.all()
-        serializer = EventSerializer(
-            events, many=True, context={'request': request}
-        )
-        return Response(serializer.data)
-
-    def post(self, request):
-        serializer = EventSerializer(
-            data=request.data, context={'request': request}
-        )
-        if serializer.is_valid():
-            serializer.save(owner=request.user)
-            return Response(
-                serializer.data, status=status.HTTP_201_CREATED
-            )
-        return Response(
-            serializer.errors, status=status.HTTP_400_BAD_REQUEST
-        )
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
 
 
-class EventDetail(APIView):
+class EventDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Retrieves, updates, or deletes an event by ID if the user owns it.
+    """
     serializer_class = EventSerializer
     permission_classes = [IsOwnerOrReadOnly]
-
-    def get_object(self, pk):
-        try:
-            event = Event.objects.get(pk=pk)
-            self.check_object_permissions(self.request, event)
-            return event
-        except Event.DoesNotExist:
-            raise Http404
-
-    def get(self, request, pk):
-        event = self.get_object(pk)
-        serializer = EventSerializer(event, context={'request': request})
-        return Response(serializer.data)
-
-    def put(self, request, pk):
-        event = self.get_object(pk)
-        serializer = EventSerializer(
-            event, data=request.data, context={'request': request})
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    def delete(self, request, pk):
-        event = self.get_object(pk)
-        event.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+    queryset = Event.objects.annotate(
+        comments_count=Count('comment', distinct=True),
+        likes_count=Count('likes', distinct=True),
+        interested_count=Count('interested', distinct=True),
+        attending_count=Count('attending', distinct=True),
+        review_count=Count('reviews', distinct=True),
+    ).order_by('-created_at')
