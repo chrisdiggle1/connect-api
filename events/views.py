@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from .models import Event
 from .serializers import EventSerializer
 from connect_api.permissions import IsOwnerOrReadOnly
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class EventList(APIView):

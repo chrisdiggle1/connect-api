@@ -5,7 +5,8 @@ from rest_framework.permissions import IsAuthenticated
 from django.http import Http404
 from .models import Profile
 from .serializers import ProfileSerializer
-from  connect_api.permissions import IsOwnerOrReadOnly
+from connect_api.permissions import IsOwnerOrReadOnly
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class ProfileList(APIView):
