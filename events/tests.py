@@ -8,7 +8,8 @@ from rest_framework.test import APITestCase
 class EventListViewTests(APITestCase):
     def setUp(self):
         self.user = User.objects.create_user(
-            username='chris', password='testpassword')
+            username='chris', password='testpassword'
+        )
         self.list_url = '/events/'
 
     def test_can_list_events(self):
@@ -30,14 +31,17 @@ class EventListViewTests(APITestCase):
 class EventDetailViewTests(APITestCase):
     def setUp(self):
         self.user1 = User.objects.create_user(
-            username='chris', password='testpassword')
+            username='chris', password='testpassword'
+        )
         self.user2 = User.objects.create_user(
-            username='kirsty', password='testpass')
+            username='kirsty', password='testpass'
+        )
         self.event1 = Event.objects.create(
             owner=self.user1, title='a title', description='chris event'
         )
         self.event2 = Event.objects.create(
-            owner=self.user2, title='another title', description='kirstys event'
+            owner=self.user2, title='another title',
+            description='kirstys event'
         )
         self.detail_url1 = f'/events/{self.event1.pk}/'
         self.detail_url2 = f'/events/{self.event2.pk}/'
@@ -54,16 +58,24 @@ class EventDetailViewTests(APITestCase):
 
     def test_user_can_update_own_event(self):
         self.client.login(username='chris', password='testpassword')
-        response = self.client.put(self.detail_url1, {
-                                   'title': 'updated title', 'description': 'updated description'})
+        response = self.client.put(
+            self.detail_url1, {
+                'title': 'updated title',
+                'description': 'updated description'
+            }
+        )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.event1.refresh_from_db()
         self.assertEqual(self.event1.title, 'updated title')
 
     def test_user_cannot_update_someone_elses_event(self):
         self.client.login(username='chris', password='testpassword')
-        response = self.client.put(self.detail_url2, {
-                                   'title': 'unauthorized update title', 'description': 'unauthorized update description'})
+        response = self.client.put(
+            self.detail_url2, {
+                'title': 'unauthorized update title',
+                'description': 'unauthorized update description'
+            }
+        )
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
         self.event2.refresh_from_db()
         self.assertNotEqual(self.event2.title, 'unauthorized update title')

@@ -95,7 +95,7 @@ class EventSerializer(serializers.ModelSerializer):
         model = Event
         fields = [
             'id', 'owner', 'created_at', 'updated_at', 'title',
-            'description', 'image','is_owner', 'profile_id', 'profile_image', 
-            'like_id','attending_id', 'likes_count', 'comments_count', 
-            'attending_count','interested_count', 'review_count', 'review_id',
+            'description', 'image', 'is_owner', 'profile_id', 'profile_image',
+            'like_id', 'attending_id', 'likes_count', 'comments_count',
+            'attending_count', 'interested_count', 'review_count', 'review_id',
         ]
