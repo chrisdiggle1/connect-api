@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     """
-    Extends the default User model by storing additional information 
-    about the user. The profile is automatically created and linked 
+    Extends the default User model by storing additional information
+    about the user. The profile is automatically created and linked
     when a User instance is saved for the first time.
     """
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
