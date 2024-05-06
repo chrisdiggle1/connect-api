@@ -3,6 +3,7 @@ from connect_api.permissions import IsOwnerOrReadOnly
 from attending.models import Attending
 from attending.serializers import AttendingSerializer
 
+
 class AttendingList(generics.ListCreateAPIView):
     """
     Lists or creates attendance posts for events.
