@@ -237,7 +237,24 @@ Before deployment on Heroku, two files need to be created and be up to date, a `
 
 ## Cloning this repository
 
+### Making a Local Clone
+
+- Log into GitHub and locate the repository you want to clone.
+- Click the 'Code' dropdown above the file list.
+- Copy the URL for the repository.
+- Open Git Bash in your IDE.
+- Change the current working directory to the location where you want the cloned directory.
+- Type `git clone` in the CLI and then paste the URL you copied earlier. This is what it should look like:
+  `$ git clone https://github.com/`
+- Press Enter to create your local clone.
+- To be able to get the project to work you need to install the requirements. This can be done by using the command:`pip3 install -r requirements.txt` - This command downloads and installs all required dependencies that is stated in the requirements file.
+- The next step is to set up the environment file so that the project knows what variables that needs to be used for it to work. Environment variables are usually hidden due to sensitive information. It's very important that you don't push the env.py file to Github (this can be secured by adding env.py to the .gitignore-file). The variables that are declared in the env.py file needs to be added to the Heroku config vars. Don't forget to do necessary migrations before trying to run the server.
+* `python3 manage.py migrate` - This will do the necessary migrations.
+* `python3 manage.py runserver` - If everything is setup correctly the project is now live locally.
+
 ## Forking a branch
+
+
 
 ## Credits
 
