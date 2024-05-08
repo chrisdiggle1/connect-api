@@ -155,6 +155,22 @@ The Kanban project board in GitHub was used to build this API using Agile princi
 
 ## Tools and Technologies
 
+[Code Institute GitPod Template](https://github.com/Code-Institute-Org/gitpod-full-template) - Provides the base to build the project on.
+
+[GitHub](https://github.com/) - Used to store the repository for this project.
+
+[git](https://git-scm.com/) - Used for version control.
+
+[GitPod](https://gitpod.io/workspaces) - Used to write and develop the code for the website, and for committing and pushing code to GitHub.
+
+[LucidChart](https://lucid.app/) - Used to plan the models to be included in the database and how they connect together.
+
+[Cloudinary](https://cloudinary.com/) - External API platform used to host images.
+
+[Code Institute Postgres Database](https://dbs.ci-dbs.net/) - Used to provide an external PostgreSQL database.
+
+[Code Institute Python Linter](https://pep8ci.herokuapp.com/) - Used to validate all the python code and ensures it meets PEP8 standards.
+
 ## Testing and Validation
 
 See [TESTING.md](TESTING.md) for all testing and validation.
