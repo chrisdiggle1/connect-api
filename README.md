@@ -35,9 +35,9 @@ The objective of the Connect API is to provide a backend database to create even
 
 ## Features
 
-### Models
+### **Models**
 
-#### Profile
+### Profile
 
 * owner - OnetoOneField
 * created_at - DateTimeField
@@ -48,7 +48,7 @@ The objective of the Connect API is to provide a backend database to create even
 * email - EmailField(optional)
 * profile_picture - ImageField
 
-#### Events
+### Events
 
 * owner = ForeignKey
 * created_at - DateTimeField
@@ -59,6 +59,46 @@ The objective of the Connect API is to provide a backend database to create even
 * image_filter - CharField
 * event_date - DateField
 * category - CharField
+
+### Attending
+
+* owner - ForeignKey
+* event - ForeignKey
+* created_at - DateTimeField
+
+### Comments
+
+* owner - ForeignKey
+* event - ForeignKey
+* created_at - DateTimeField
+* updated_at - DateTimeField
+* content - TextField
+
+### Followers
+
+* owner - ForeignKey
+* followed - ForeignKey
+* created_at - DateTimeField
+
+### Interested
+
+* owner - ForeignKey
+* event - ForeignKey
+* created_at - DateTimeField
+
+### Likes
+
+* owner - ForeignKey
+* event - ForeignKey
+* created_at - DateTimeField
+
+### Reviews
+
+* owner - ForeignKey
+* event - ForeignKey
+* created_at - DateTimeField
+* updated_at - DateTimeField
+* review - TextField
 
 ## Design
 
