@@ -272,3 +272,11 @@ Before deployment on Heroku, two files need to be created and be up to date, a `
 
 ## Acknowledgements
 
+* My wife Kirsty for her support during this and all the other projects, taking the kids out so I can study in peace, bringing regular coffee to keep me going and telling me to take a break when I struggled with an issue.
+
+* My employee for giving me a chance as a junior developer. The last 10 months I have been in the role I have learnt so much and far quicker than I would if I was just studying in my own time.
+
+* My fellow developers who help and answer any questions I have. Having access to other devs all day everyday has been a massive help for my learning and growth in development.
+
+* The Slack community for when you need help, a laugh or to help somebody else out.
+
