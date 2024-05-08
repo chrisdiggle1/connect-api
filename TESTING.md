@@ -10,7 +10,74 @@
 
 ## Code Validation
 
+The Connect API has been passed through the [Code Institute Python Linter](https://pep8ci.herokuapp.com/)
+
+| App | File | Result |
+| --- | --- | --- |
+| Connect_API | permissions.py | No errors or warnings |
+| | serializers.py | No errors or warnings |
+| | views.py | No errors or warnings |
+| | urls.py | No errors or warnings |
+| Attending | models.py | No errors or warnings |
+| | serializers.py | No errors or warnings |
+| | views.py | No errors or warnings |
+| | urls.py | No errors or warnings |
+| | tests.py | No errors or warnings |
+| Comments | models.py | No errors or warnings |
+| | serializers.py | No errors or warnings |
+| | views.py | No errors or warnings |
+| | urls.py | No errors or warnings |
+| | tests.py | No errors or warnings |
+| Events | models.py | No errors or warnings |
+| | serializers.py | No errors or warnings |
+| | views.py | No errors or warnings |
+| | urls.py | No errors or warnings |
+| | tests.py | No errors or warnings |
+| Followers | models.py | No errors or warnings |
+| | serializers.py | No errors or warnings |
+| | views.py | No errors or warnings |
+| | urls.py | No errors or warnings |
+| | tests.py | No errors or warnings |
+| Interested | models.py | No errors or warnings |
+| | serializers.py | No errors or warnings |
+| | views.py | No errors or warnings |
+| | urls.py | No errors or warnings |
+| | tests.py | No errors or warnings |
+| Likes | models.py | No errors or warnings |
+| | serializers.py | No errors or warnings |
+| | views.py | No errors or warnings |
+| | urls.py | No errors or warnings |
+| | tests.py | No errors or warnings |
+| Profiles | models.py | No errors or warnings |
+| | serializers.py | No errors or warnings |
+| | views.py | No errors or warnings |
+| | urls.py | No errors or warnings |
+| | tests.py | No errors or warnings |
+| Reviews | models.py | No errors or warnings |
+| | serializers.py | No errors or warnings |
+| | views.py | No errors or warnings |
+| | urls.py | No errors or warnings |
+| | tests.py | No errors or warnings |
+
+<br>
+
 ## Manual Testing
+
+In addition to the automated testing done I have also done some manual testing.
+
+**Test** | **Action** | **Expected Result** | **Actual Result**
+-------- | ------------------- | ------------------- | -----------------
+User | Create, update & delete user | A user can be created, edited or deleted | Works as expected
+Profile | Create, update & delete | User profile can be created, edited or deleted | Works as expected
+Event | Create, update & delete | A Task can be created, edited or deleted | Works as expected
+Comment | Create, update & delete | A comment can be created, edited or deleted | Works as expected
+Follower | Create & delete |  A Follow relationship between Users can be created or deleted | Works as expected
+Like | Create & delete | A Like can be created, edited or deleted | Works as expected
+Attending | Create & delete | An Attending tag can be created or deleted | Works as expected
+Interested | Create & delete | An Interested tag can be created or deleted | Works as expected
+Review | Create, update & delete | A review can be created, edited or deleted | Works as expected
+
+<br>
 
 ## Automated Testing
 
