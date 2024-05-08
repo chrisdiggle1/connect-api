@@ -104,9 +104,13 @@ The objective of the Connect API is to provide a backend database to create even
 
 ### Aim
 
-### Scope
+The aim is to store data on an event hosting site which includes posting events for users to be able to state whether they are interested, attending, like and leave reviews for an event that has been posted, and provide a full range of CRUD functionality. 
 
 ### Structure
+
+The entity relationship diagram below shows the relationships between the models used for this project.
+
+![ERD](images/erd.PNG)
 
 ## Agile Methodology
 
