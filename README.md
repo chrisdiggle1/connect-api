@@ -16,7 +16,6 @@
 - [Tools and Technologies](#tools-and-technologies)
 - [Testing and Validation](#testing-and-validation)
 - [Bugs and Fixes](#bugs-and-fixes)
-- [Connecting to the API](#connecting-to-the-api)
 - [Deployment](#deployment)
 - [Cloning this repository](#cloning-this-repository)
 - [Forking a branch](#forking-a-branch)
@@ -29,9 +28,9 @@ The objective of the Connect API is to provide a backend database to create even
 
 ## Links to deployed Project
 
-[Connect API Live link]()
+[Connect API Live link](https://connect-api-5644c52001aa.herokuapp.com/)
 
-[Connect App Live Link]()
+[Connect App frontend Live Link]()
 
 ## Features
 
@@ -126,6 +125,8 @@ The Kanban project board in GitHub was used to build this API using Agile princi
 
 ## Languages
 
+* Python
+
 ## Frameworks and Libraries
 
 [Django 3.2](https://www.djangoproject.com/) high-level Python web framework used to develop this application.
@@ -135,6 +136,22 @@ The Kanban project board in GitHub was used to build this API using Agile princi
 [Cloudinary 1.4 and Cloudinary storage 0.3](https://cloudinary.com/) - Allowing connection with Cloudinary.
 
 [Pillow 8.2](https://pypi.org/project/pillow/8.2.0/) - A Python imaging library that includes image processing capabilities.
+
+[dj_database_url 2.1](https://pypi.org/project/dj-database-url/) - A Django utility used to configure the API to connect to an outside database using its URL.
+
+[psycopg2](https://pypi.org/project/psycopg2/) - A PostgreSQL database adapter for the Python programming language.
+
+[gunicorn 22.0](https://gunicorn.org/) - A Python WSGI HTTP Server for UNIX.
+
+[django-cors-headers 4.3.1](https://pypi.org/project/django-cors-headers/) - A Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS)
+
+[django-allauth 0.44.0](https://pypi.org/project/django-allauth/) - Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
+
+[dj-rest-auth package 2.1.9](https://dj-rest-auth.readthedocs.io/en/latest/installation.html) - A set of REST API endpoints to handle User Registration and Authentication tasks.
+
+[djangorestframework-simplejwt package 4.7.2](https://pypi.org/project/djangorestframework-simplejwt/) - A JSON Web Token authentication plugin for the Django REST Framework.
+
+[django-filter 23.5](https://pypi.org/project/django-filter/) - Django-filter is a reusable Django application allowing users to declaratively add dynamic QuerySet filtering from URL parameters.
 
 ## Tools and Technologies
 
