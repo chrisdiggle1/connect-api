@@ -114,6 +114,16 @@ The entity relationship diagram below shows the relationships between the models
 
 ## Agile Methodology
 
+The Kanban project board in GitHub was used to build this API using Agile principles. Moscow prioritisations was used, along with seperating the work into sprints and story points set to each task indicating the complexity for that task.
+
+* Sprint 1 - Setting up each app in full used in the project.
+* Sprint 2 - Automated testing and code validation.
+* Sprint 3 - Complete README.mdand TESTING.md
+
+![KanbanBoard1](images/kanban-board.PNG)
+
+![KanbanBoard2](images/kanban-board2.PNG)
+
 ## Languages
 
 ## Frameworks and Libraries
