@@ -254,7 +254,12 @@ Before deployment on Heroku, two files need to be created and be up to date, a `
 
 ## Forking a branch
 
+### Forking the Repository
 
+- Log in to GitHub and locate the GitHub repository you want to fork.
+- At the top of the Repository above the "Settings" Tab on the menu, locate the "Fork" Button and click it.
+- You will have a copy of the original repository in your GitHub account.
+- You will now be able to make changes to the new version and keep the original safe.
 
 ## Credits
 
