@@ -181,9 +181,59 @@ See [TESTING.md](TESTING.md) for all testing and validation.
 | --- | ---|
 | After creating the profiles model, I tried to access the 'Profiles' section in the admin panel, but I was receiving an error: CLOUDINARY_STORAGE dictionary with CLOUD_NAME, API_SECRET and API_KEY in the settings or set CLOUDINARY_URL variable (or CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET variables). I checked mulitple times the cloudinary variable were setup correctly in env.py and settings.py. | I had stored the env.py file in the 'connect_api directory. Once I moved the file to the project root then I could access the profile section in the admin panel as expected. |
 
-## Connecting to the API
 
 ## Deployment
+
+**Requirements and Procfile Files**
+
+Before deployment on Heroku, two files need to be created and be up to date, a `requirements.txt` file and a `Procfile`.
+
+- The `requirements.txt` file is created by executing the following command in the terminal window: ` pip3 freeze --local > requirements.txt`. A file with all requirements will be created.
+- Then create a file named `Procfile` and insert the following code: `web: gunicorn connect_api.wsgi`, with no empty lines after it.
+- Then make sure to push these files to your repository.
+
+**Creating A New Heroku App**
+
+- Log into Heroku your Heroku and go to the Dashboard.
+- Click "New" and then select "Create new app".
+- Give your app a name and select the region closest to you.
+- Click "Create app" to confirm.
+
+**The env.py file**
+
+- If you do not have a `env.py` file in your workspace create one and make sure it is included in the `.gitignore` file.
+- At the top of the `env.py` file add the line: `import os`.
+- Below that add the following lines:
+
+  `os.environ["DATABASE_URL"] = "<copied URL from SQL database>"` 
+  `os.environ["SECRET_KEY"] = "<create a secret key of your own>"` 
+
+- If you are using Cloudinary storage also add the following line:
+
+  `os.environ["CLOUDINARY_URL"] = "<copied URL from Cloudinary account>"`
+
+- Make sure the environment variables are imported correctly into the `settings.py` file.
+
+- Run `python manage.py migrate` in the terminal window to migrate the data structure to the database instance.
+
+**Setting Environment Variables**
+
+- On the Heroku Dashboard select the app you just created, select the "Settings" tab.
+- Click "Reveal Config Vars"
+- Add the following config vars:
+
+* `ALLOWED_HOST`
+* `CLOUDINARY_URL`
+* `DATABASE_URL`
+* `CLIENT_ORIGIN_DEV`
+* `SECRET_KEY`
+
+**Connecting to GitHub and Deploy**
+
+- On the Heroku Dashboard select the app you just created and then select the "Deploy" tab.
+- Select GitHub for the deployment method.
+- Search for the name of your project repository and click "Connect".
+- Select "Deploy Branch" and watch the app being built and you can view the build logs.
 
 ## Cloning this repository
 
