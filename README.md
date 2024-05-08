@@ -263,4 +263,12 @@ Before deployment on Heroku, two files need to be created and be up to date, a `
 
 ## Credits
 
+[Code Instistute](https://codeinstitute.net/) - "Django Rest API" walkthrough followed during the initial set-up of this project, installing dependencies, setting up user registration and authentication, setting up pagination and deploying to Heroku. The following models were also used with slight customisation from the walkthrough as my site is based on the 'moments' site but I have added 3 custom models ontop of this and more functionality.
+
+* Comments
+* Followers
+* Likes
+* Profiles
+
 ## Acknowledgements
+
