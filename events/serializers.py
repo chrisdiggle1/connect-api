@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User
 from django.utils import timezone
 from .models import Event
 from interested.models import Interested
@@ -15,8 +14,9 @@ class EventSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
-    profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
-    like_id = serializers.SerializerMethodField()
+    profile_picture = serializers.ReadOnlyField(
+        source='owner.profile.profile_picture.url')
+    likes_id = serializers.SerializerMethodField()
     attending_id = serializers.SerializerMethodField()
     review_id = serializers.SerializerMethodField()
     comments_count = serializers.ReadOnlyField()
@@ -55,7 +55,7 @@ class EventSerializer(serializers.ModelSerializer):
             return obj.owner == request.user
         return False
 
-    def get_like_id(self, obj):
+    def get_likes_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
             like = Like.objects.filter(
@@ -95,8 +95,8 @@ class EventSerializer(serializers.ModelSerializer):
         model = Event
         fields = [
             'id', 'owner', 'created_at', 'updated_at', 'title', 'event_date',
-            'description', 'image', 'is_owner', 'profile_id', 'profile_image',
-            'like_id', 'attending_id', 'likes_count', 'comments_count',
+            'description', 'image', 'is_owner', 'profile_id', 'profile_picture',
+            'likes_id', 'attending_id', 'likes_count', 'comments_count',
             'interested_count', 'review_count', 'review_id', 'category',
             'attending_count',
         ]
